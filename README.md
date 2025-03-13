@@ -1,84 +1,51 @@
-# Turborepo starter
+# SVGR - A Modern SVG Rendering & Utility Library 🚀
 
-This Turborepo starter is maintained by the Turborepo core team.
+SVGR is a lightweight, framework-agnostic library for generating, transforming, and rendering SVGs safely and efficiently. Built with a fluent API, it provides a powerful way to manipulate SVGs for use across different platforms and frameworks.
 
-## Using this example
+## 📌 Project Status
 
-Run the following command:
+⚠️ This project is in its **early development stage**. Expect frequent updates, breaking changes, and new features as we refine the API and implementation.  
+
+## ✨ Features (Planned)
+
+- 🎨 **Transform & optimize** SVGs dynamically  
+- 🔌 **Headless & framework-agnostic** (usable with React, Vue, Angular, and more)  
+- ⚡ **Fluent API** for easy and intuitive SVG manipulation  
+- 🛠 **Configurable** via JSON or code  
+- ✅ **Safe & controlled rendering**  
+
+## 📦 Installation (Coming Soon)
 
 ```sh
-npx create-turbo@latest
+npm install @svgr/core
+# or
+yarn add @svgr/core
+# or
+pnpm add @svgr/core
 ```
 
-## What's inside?
+## 🚀 Getting Started (Coming Soon)
 
-This Turborepo includes the following packages/apps:
+The initial release will provide methods to **convert, optimize, and render SVGs** dynamically. Stay tuned for a detailed usage guide!
 
-### Apps and Packages
+## 📅 Roadmap
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- ✅ Project setup & tooling  
+- 🚧 Basic API implementation  
+- 🔜 Optimization & performance tuning  
+- 🔜 Framework integrations (React, Vue, Angular, Svelte)  
+- 🔜 Documentation & examples  
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## 🤝 Contributing
 
-### Utilities
+Contributions are welcome! As the project evolves, we will add contribution guidelines. If you’re interested, feel free to open an issue or start a discussion.
 
-This Turborepo has some additional tools already setup for you:
+## 📜 License
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+MIT © [Your Name or Organization]  
 
-### Build
+---
 
-To build all apps and packages, run the following command:
+Stay tuned for updates and feel free to ⭐ the repo if you're interested in following the progress!
 
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+---
