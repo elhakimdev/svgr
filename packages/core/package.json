@@ -1,0 +1,10 @@
+{
+  "name": "@svgr/core",
+  "private": true,
+  "scripts": {
+    "build:lib": "vite build --mode lib",
+    "build:prod": "vite build --mode production",
+    "test": "vitest run",
+    "test:watch": "vitest --watch"
+  }
+}
