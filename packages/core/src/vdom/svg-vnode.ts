@@ -30,7 +30,14 @@ type SVGPresentationAttributes = {
 };
 
 type SVGShapeAttributes = {
-  rect: { x?: number; y?: number; width: number; height: number; rx?: number; ry?: number };
+  rect: {
+    x?: number;
+    y?: number;
+    width: number;
+    height: number;
+    rx?: number;
+    ry?: number;
+  };
   circle: { cx: number; cy: number; r: number };
   ellipse: { cx: number; cy: number; rx: number; ry: number };
   line: { x1: number; y1: number; x2: number; y2: number };
@@ -43,22 +50,52 @@ type SVGPathAttributes = {
 };
 
 type SVGTextAttributes = {
-  text: { x?: number; y?: number; dx?: number; dy?: number; textAnchor?: "start" | "middle" | "end" };
+  text: {
+    x?: number;
+    y?: number;
+    dx?: number;
+    dy?: number;
+    textAnchor?: "start" | "middle" | "end";
+  };
   tspan: { x?: number; y?: number; dx?: number; dy?: number };
   textPath: { href: string };
 };
 
 type SVGContainerAttributes = {
   g: {};
-  svg: { width?: number | string; height?: number | string; viewBox?: string; xmlns?: string };
+  svg: {
+    width?: number | string;
+    height?: number | string;
+    viewBox?: string;
+    xmlns?: string;
+  };
   defs: {};
   symbol: { viewBox?: string };
-  use: { href?: string; x?: number; y?: number; width?: number; height?: number };
+  use: {
+    href?: string;
+    x?: number;
+    y?: number;
+    width?: number;
+    height?: number;
+  };
 };
 
 type SVGGradientAttributes = {
-  linearGradient: { x1?: string; y1?: string; x2?: string; y2?: string; gradientUnits?: string };
-  radialGradient: { cx?: string; cy?: string; r?: string; fx?: string; fy?: string; gradientUnits?: string };
+  linearGradient: {
+    x1?: string;
+    y1?: string;
+    x2?: string;
+    y2?: string;
+    gradientUnits?: string;
+  };
+  radialGradient: {
+    cx?: string;
+    cy?: string;
+    r?: string;
+    fx?: string;
+    fy?: string;
+    gradientUnits?: string;
+  };
   pattern: { patternUnits?: string; patternContentUnits?: string };
 };
 
@@ -68,43 +105,78 @@ type SVGClipMaskAttributes = {
 };
 
 type SVGFilterAttributes = {
-  filter: { x?: string; y?: string; width?: string; height?: string; filterUnits?: string };
+  filter: {
+    x?: string;
+    y?: string;
+    width?: string;
+    height?: string;
+    filterUnits?: string;
+  };
   feGaussianBlur: { stdDeviation: number };
   feOffset: { dx: number; dy: number };
   feBlend: { mode?: string };
 };
 
 // Combine global attributes, presentation attributes, and specific attributes
-type SVGAttributes<T extends keyof SVGElementTagNameMap> =
-  SVGGlobalAttributes &
+type SVGAttributes<T extends keyof SVGElementTagNameMap> = SVGGlobalAttributes &
   SVGPresentationAttributes &
-  (T extends keyof SVGShapeAttributes ? SVGShapeAttributes[T] :
-  T extends keyof SVGPathAttributes ? SVGPathAttributes[T] :
-  T extends keyof SVGTextAttributes ? SVGTextAttributes[T] :
-  T extends keyof SVGContainerAttributes ? SVGContainerAttributes[T] :
-  T extends keyof SVGGradientAttributes ? SVGGradientAttributes[T] :
-  T extends keyof SVGClipMaskAttributes ? SVGClipMaskAttributes[T] :
-  T extends keyof SVGFilterAttributes ? SVGFilterAttributes[T] :
-  {}); // Default empty object if no match
+  (T extends keyof SVGShapeAttributes
+    ? SVGShapeAttributes[T]
+    : T extends keyof SVGPathAttributes
+      ? SVGPathAttributes[T]
+      : T extends keyof SVGTextAttributes
+        ? SVGTextAttributes[T]
+        : T extends keyof SVGContainerAttributes
+          ? SVGContainerAttributes[T]
+          : T extends keyof SVGGradientAttributes
+            ? SVGGradientAttributes[T]
+            : T extends keyof SVGClipMaskAttributes
+              ? SVGClipMaskAttributes[T]
+              : T extends keyof SVGFilterAttributes
+                ? SVGFilterAttributes[T]
+                : {}); // Default empty object if no match
 
 export type SVGProperties<T extends keyof SVGElementTagNameMap> = Partial<
   SVGElementTagNameMap[T]
-> & Record<string, string | number | boolean>;
+> &
+  Record<string, string | number | boolean>;
 
-export interface SVGVNode<T extends keyof SVGElementTagNameMap = keyof SVGElementTagNameMap> {
-  tag: T,
-  attrs: SVGAttributes<T>,
-  props: SVGProperties<T>,
-  children: SVGVNode[],
-  el?: SVGElementTagNameMap[T]
+export interface SVGVNode<
+  T extends keyof SVGElementTagNameMap = keyof SVGElementTagNameMap,
+> {
+  tag: T;
+  attrs: SVGAttributes<T>;
+  props: SVGProperties<T>;
+  children: SVGVNode[];
+  el?: SVGElementTagNameMap[T];
 }
 
-export function createSvgVNode<T extends keyof SVGElementTagNameMap>(tag: T): SVGVNode<T>;
-export function createSvgVNode<T extends keyof SVGElementTagNameMap>(tag: T, children: SVGVNode[]): SVGVNode<T>;
-export function createSvgVNode<T extends keyof SVGElementTagNameMap>(tag: T, props: SVGAttributes<T>): SVGVNode<T>;
-export function createSvgVNode<T extends keyof SVGElementTagNameMap>(tag: T, props: SVGProperties<T>, attrs: SVGAttributes<T>): SVGVNode<T>;
-export function createSvgVNode<T extends keyof SVGElementTagNameMap>(tag: T, props: SVGProperties<T>, attrs: SVGAttributes<T>, children: SVGVNode[]): SVGVNode<T>;
-export function createSvgVNode<T extends keyof SVGElementTagNameMap>(tag: T, ...args: (SVGAttributes<T> | SVGVNode[])[]): SVGVNode<T> {
+export function createSvgVNode<T extends keyof SVGElementTagNameMap>(
+  tag: T,
+): SVGVNode<T>;
+export function createSvgVNode<T extends keyof SVGElementTagNameMap>(
+  tag: T,
+  children: SVGVNode[],
+): SVGVNode<T>;
+export function createSvgVNode<T extends keyof SVGElementTagNameMap>(
+  tag: T,
+  props: SVGAttributes<T>,
+): SVGVNode<T>;
+export function createSvgVNode<T extends keyof SVGElementTagNameMap>(
+  tag: T,
+  props: SVGProperties<T>,
+  attrs: SVGAttributes<T>,
+): SVGVNode<T>;
+export function createSvgVNode<T extends keyof SVGElementTagNameMap>(
+  tag: T,
+  props: SVGProperties<T>,
+  attrs: SVGAttributes<T>,
+  children: SVGVNode[],
+): SVGVNode<T>;
+export function createSvgVNode<T extends keyof SVGElementTagNameMap>(
+  tag: T,
+  ...args: (SVGAttributes<T> | SVGVNode[])[]
+): SVGVNode<T> {
   let attrs: SVGAttributes<T> | {} = {};
   let props: SVGProperties<T> = {};
   let children: SVGVNode[] = [];
@@ -112,7 +184,7 @@ export function createSvgVNode<T extends keyof SVGElementTagNameMap>(tag: T, ...
   if (typeof args[0] === "object" && !Array.isArray(args[0])) {
     props = args[0] as SVGProperties<T>;
   }
-  
+
   if (typeof args[1] === "object" && !Array.isArray(args[1])) {
     attrs = args[1] as SVGAttributes<T>;
   }
@@ -122,11 +194,11 @@ export function createSvgVNode<T extends keyof SVGElementTagNameMap>(tag: T, ...
   }
 
   const createProxy = <T>(obj: T) =>
-    new Proxy(obj as object , {
+    new Proxy(obj as object, {
       set(target, key, value) {
         target[key] = value;
         return true;
-      }
+      },
     });
 
   let SvgVnode: SVGVNode<T> = {
@@ -134,7 +206,7 @@ export function createSvgVNode<T extends keyof SVGElementTagNameMap>(tag: T, ...
     props: createProxy(props) as SVGProperties<T>,
     attrs: createProxy(attrs) as SVGAttributes<T>,
     children: createProxy(children) as SVGVNode[],
-  }
+  };
 
   return SvgVnode;
-};
+}

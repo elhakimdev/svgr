@@ -4,15 +4,15 @@ SVGR is a lightweight, framework-agnostic library for generating, transforming, 
 
 ## 📌 Project Status
 
-⚠️ This project is in its **early development stage**. Expect frequent updates, breaking changes, and new features as we refine the API and implementation.  
+⚠️ This project is in its **early development stage**. Expect frequent updates, breaking changes, and new features as we refine the API and implementation.
 
 ## ✨ Features (Planned)
 
-- 🎨 **Transform & optimize** SVGs dynamically  
-- 🔌 **Headless & framework-agnostic** (usable with React, Vue, Angular, and more)  
-- ⚡ **Fluent API** for easy and intuitive SVG manipulation  
-- 🛠 **Configurable** via JSON or code  
-- ✅ **Safe & controlled rendering**  
+- 🎨 **Transform & optimize** SVGs dynamically
+- 🔌 **Headless & framework-agnostic** (usable with React, Vue, Angular, and more)
+- ⚡ **Fluent API** for easy and intuitive SVG manipulation
+- 🛠 **Configurable** via JSON or code
+- ✅ **Safe & controlled rendering**
 
 ## 📦 Installation (Coming Soon)
 
@@ -30,11 +30,11 @@ The initial release will provide methods to **convert, optimize, and render SVGs
 
 ## 📅 Roadmap
 
-- ✅ Project setup & tooling  
-- 🚧 Basic API implementation  
-- 🔜 Optimization & performance tuning  
-- 🔜 Framework integrations (React, Vue, Angular, Svelte)  
-- 🔜 Documentation & examples  
+- ✅ Project setup & tooling
+- 🚧 Basic API implementation
+- 🔜 Optimization & performance tuning
+- 🔜 Framework integrations (React, Vue, Angular, Svelte)
+- 🔜 Documentation & examples
 
 ## 🤝 Contributing
 
@@ -42,7 +42,7 @@ Contributions are welcome! As the project evolves, we will add contribution guid
 
 ## 📜 License
 
-MIT © [Your Name or Organization]  
+MIT © [Your Name or Organization]
 
 ---
 

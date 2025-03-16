@@ -1,1 +1,1 @@
-export const SVG = {}
+export const SVG = {};

@@ -5,8 +5,8 @@ import path from "path";
 
 export default defineConfig(({ mode }) => {
   return {
-    ...createViteConfig(path.resolve(__dirname), mode , {
-      name: "@svgr/core"
+    ...createViteConfig(path.resolve(__dirname), mode, {
+      name: "@svgr/core",
     }),
   };
 });

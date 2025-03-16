@@ -1,7 +1,7 @@
-import { describe, expect, test } from 'vitest'
-import { createSvgVNode } from '../svg-vnode'
+import { describe, expect, test } from "vitest";
+import { createSvgVNode } from "../svg-vnode";
 
-describe('Describe Svg VNode Factory Function', () => {
+describe("Describe Svg VNode Factory Function", () => {
   test("It should create 'svg' tag only", (ctx) => {
     const svgNode = createSvgVNode("svg");
 
@@ -9,7 +9,7 @@ describe('Describe Svg VNode Factory Function', () => {
       tag: "svg",
       props: {},
       attrs: {},
-      children: []
+      children: [],
     });
     expect(svgNode.tag).toStrictEqual("svg");
     expect(svgNode.props).toStrictEqual({});
@@ -32,7 +32,7 @@ describe('Describe Svg VNode Factory Function', () => {
         height: 300,
       },
       attrs: {},
-      children: []
+      children: [],
     });
     expect(svgNode.tag).toStrictEqual("svg");
     expect(svgNode.props).toStrictEqual({
@@ -46,36 +46,44 @@ describe('Describe Svg VNode Factory Function', () => {
     expect(svgNode.children).toStrictEqual([]);
     expect(svgNode.children.length).toStrictEqual(0);
     expect(svgNode.el).toStrictEqual(undefined);
-  })
+  });
 
   test("It should create 'svg' tag with children", (ctx) => {
-    const svgPatVNode = createSvgVNode("path", {}, {
-      d: ""
-    });
+    const svgPatVNode = createSvgVNode(
+      "path",
+      {},
+      {
+        d: "",
+      },
+    );
     const svgRootNode = createSvgVNode("svg", [svgPatVNode]);
     expect(svgRootNode).toStrictEqual({
       tag: "svg",
       props: {},
       attrs: {},
-      children: [{
-        tag: "path",
-        props: {},
-        attrs: {
-          d: ""
+      children: [
+        {
+          tag: "path",
+          props: {},
+          attrs: {
+            d: "",
+          },
+          children: [],
         },
-        children: []
-      }]
+      ],
     });
     expect(svgRootNode.tag).toStrictEqual("svg");
     expect(svgRootNode.props).toStrictEqual({});
-    expect(svgRootNode.children).toStrictEqual([{
-      tag: "path",
-      props: {},
-      attrs: {
-        d: ""
+    expect(svgRootNode.children).toStrictEqual([
+      {
+        tag: "path",
+        props: {},
+        attrs: {
+          d: "",
+        },
+        children: [],
       },
-      children: []
-    }]);
+    ]);
     expect(svgRootNode.children.length).toStrictEqual(1);
     expect(svgRootNode.el).toStrictEqual(undefined);
 
@@ -83,92 +91,105 @@ describe('Describe Svg VNode Factory Function', () => {
       tag: "path",
       props: {},
       attrs: {
-        d: ""
+        d: "",
       },
-      children: []
+      children: [],
     });
     expect(svgRootNode.children[0].tag).toStrictEqual("path");
     expect(svgRootNode.children[0].props).toStrictEqual({});
     expect(svgRootNode.children[0].attrs).toStrictEqual({
-      d: ""
+      d: "",
     });
     expect(svgRootNode.children[0].children).toStrictEqual([]);
     expect(svgRootNode.children[0].children.length).toStrictEqual(0);
     expect(svgRootNode.children[0].el).toStrictEqual(undefined);
-  })
+  });
 
   test("It should create 'svg' tag with props & children (tag only)", (ctx) => {
-    const svgPatVNode = createSvgVNode("path", {
-      id: "pathSvgEl"
-    }, {
-      d: ""
-    });
-    const svgRootNode = createSvgVNode("svg", {
-      id: "rootSvgEl"
-    }, {
-      fill: "blue"
-    }, [svgPatVNode]);
+    const svgPatVNode = createSvgVNode(
+      "path",
+      {
+        id: "pathSvgEl",
+      },
+      {
+        d: "",
+      },
+    );
+    const svgRootNode = createSvgVNode(
+      "svg",
+      {
+        id: "rootSvgEl",
+      },
+      {
+        fill: "blue",
+      },
+      [svgPatVNode],
+    );
     expect(svgRootNode).toStrictEqual({
       tag: "svg",
       props: {
-        id: "rootSvgEl"
+        id: "rootSvgEl",
       },
       attrs: {
-        fill: "blue"
+        fill: "blue",
       },
-      children: [{
-        tag: "path",
-        props: {
-          id: "pathSvgEl"
+      children: [
+        {
+          tag: "path",
+          props: {
+            id: "pathSvgEl",
+          },
+          attrs: {
+            d: "",
+          },
+          children: [],
         },
-        attrs: {
-          d: ""
-        },
-        children: []
-      }]
+      ],
     });
     expect(svgRootNode.tag).toStrictEqual("svg");
     expect(svgRootNode.props).toStrictEqual({
-      id: "rootSvgEl"
+      id: "rootSvgEl",
     });
     expect(svgRootNode.props.id).toStrictEqual("rootSvgEl");
     expect(svgRootNode.attrs).toStrictEqual({
-      "fill": "blue"
+      fill: "blue",
     });
     expect(svgRootNode.attrs.fill).toStrictEqual("blue");
-    expect(svgRootNode.children).toStrictEqual([{
-      tag: "path",
-      props: {
-        id: "pathSvgEl"
+    expect(svgRootNode.children).toStrictEqual([
+      {
+        tag: "path",
+        props: {
+          id: "pathSvgEl",
+        },
+        attrs: {
+          d: "",
+        },
+        children: [],
       },
-      attrs: {
-        d: ""
-      },
-      children: []
-    }]);
+    ]);
     expect(svgRootNode.children.length).toStrictEqual(1);
     expect(svgRootNode.el).toStrictEqual(undefined);
 
     expect(svgRootNode.children[0]).toStrictEqual({
       tag: "path",
       props: {
-        id: "pathSvgEl"
+        id: "pathSvgEl",
       },
       attrs: {
-        d: ""
+        d: "",
       },
-      children: []
+      children: [],
     });
     expect(svgRootNode.children[0].tag).toStrictEqual("path");
     expect(svgRootNode.children[0].props).toStrictEqual({
-      id: "pathSvgEl"
+      id: "pathSvgEl",
     });
     expect(svgRootNode.children[0].props.id).toStrictEqual("pathSvgEl");
     expect(svgRootNode.children[0].attrs).toStrictEqual({
-      d: ""
+      d: "",
     });
     expect(svgRootNode.children[0].children).toStrictEqual([]);
     expect(svgRootNode.children[0].children.length).toStrictEqual(0);
     expect(svgRootNode.children[0].el).toStrictEqual(undefined);
-  })
-})
+  });
+});
