@@ -5,6 +5,7 @@
     "build:lib": "vite build --mode lib",
     "build:prod": "vite build --mode production",
     "test": "vitest run",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "test:watch:ui": "vitest --watch --ui"
   }
 }
